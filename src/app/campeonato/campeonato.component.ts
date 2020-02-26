@@ -11,12 +11,12 @@ export class CampeonatoComponent implements OnInit {
     private firestoreService: FirestoreService
   ) { }
   ngOnInit() {
-    this.firestoreService.getCResultados().subscribe((catsSnapshot) => {
+    this.firestoreService.getCResultados().subscribe((campeonatoSnapshot) => {
       this.campeonato = [];
-      catsSnapshot.forEach((catData: any) => {
+      campeonatoSnapshot.forEach((campeonatoData: any) => {
         this.campeonato.push({
-          id: catData.payload.doc.id,
-          data: catData.payload.doc.data()
+          id: campeonatoData.payload.doc.id,
+          data: campeonatoData.payload.doc.data()
         });
       });
     });
